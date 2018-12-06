@@ -31,7 +31,8 @@ class JSONFocusStore implements FocusStoreInterface
 	 *
 	 * @since 4.0.0
 	 */
-	protected static $dataLocation = JPATH_PLUGINS . '/media-action/focus/data/focus.json';
+	//protected static $dataLocation = JPATH_PLUGINS . '/media-action/focus/data/focus.json';
+	protected static $dataLocation = JPATH_SITE . '/media/focus/data/focus.json';
 
 	/**
 	 * Location for all focus related storage.
@@ -40,7 +41,8 @@ class JSONFocusStore implements FocusStoreInterface
 	 *
 	 * @since 4.0.0
 	 */
-	protected static $dataFolder = JPATH_PLUGINS . '/media-action/focus/data/';
+	//protected static $dataFolder = JPATH_PLUGINS . '/media/focus/data/';
+	protected static $dataFolder = JPATH_SITE . '/media/focus/data/';
 	
 	/**
 	 * Base path for cache images.
@@ -49,7 +51,7 @@ class JSONFocusStore implements FocusStoreInterface
 	 *
 	 * @since   4.0.0
 	 */
-	protected $cacheDir =  "/media/focus";
+	protected $cacheDir =  "/media/focus/images";
 	/**
 	 * Checks the storage at the initilization of the class
 	 * 
@@ -107,6 +109,7 @@ class JSONFocusStore implements FocusStoreInterface
 
 			file_put_contents(static::$dataLocation, json_encode($newEntry));
 		}
+
 		return true;
 	}
 
@@ -168,6 +171,7 @@ class JSONFocusStore implements FocusStoreInterface
 
 			file_put_contents(static::$dataLocation, json_encode($prevData));
 		}
+
 		return true;
 	}
 	/**
@@ -199,6 +203,7 @@ class JSONFocusStore implements FocusStoreInterface
 				unlink(JPATH_SITE . $this->cacheDir . "/" . $name);
 			}
 		}
+
 		return true;
 	}
 	/**
@@ -217,6 +222,7 @@ class JSONFocusStore implements FocusStoreInterface
 			mkdir(static::$dataFolder);
 			touch($dataLocation);
 		}
+
 		return true;
 	}
 	/**
@@ -251,6 +257,7 @@ class JSONFocusStore implements FocusStoreInterface
 			"box-width"  => $maxX - $minX,
 			"box-height" => $maxY - $minY
 		);
+
 		return $maxFocus;
 	}
 }

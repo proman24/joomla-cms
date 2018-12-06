@@ -118,6 +118,10 @@ class PlgContentAdaptiveImage extends CMSPlugin
 			$cacheImages = array();
 			foreach ($cacheFolderImages as $key => $name)
 			{
+				if ($name == "data")
+				{
+					continue;
+				}
 				// Decrypting the image name 
 				$imgWidth = explode("_", $name);
 				$imgName = explode(".", $imgWidth[1]);

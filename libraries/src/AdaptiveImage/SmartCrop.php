@@ -131,6 +131,7 @@ class SmartCrop
 		{
 			mkdir($this->dataLocation);
 		}
+		
 		return true;
 	}
 }
