@@ -129,7 +129,7 @@ class SmartCrop
 	{
 		if (!is_dir($this->dataLocation))
 		{
-			mkdir($this->dataLocation, 0777);
+			mkdir($this->dataLocation);
 		}
 		return true;
 	}
